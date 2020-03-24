@@ -35,7 +35,7 @@ $(document).ready(function() {
                     videoId = item.snippet.resourceId.videoId;
 
 
-                    output = '<h1>test1</h1><br><li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + videoId + '\"></iframe></li>'
+                    output = '<h1>' + videoTitle + '</h1><br><li><iframe height="' + vidHeight + '" width="' + vidWidth + '" src=\"//www.youtube.com/embed/' + videoId + '\"></iframe></li>'
 
                     //Append to results listStyleTpe
                     $('#results').append(output);
