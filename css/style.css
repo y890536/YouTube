@@ -20,6 +20,7 @@ footer {
     bottom: 0;
     margin-left: -600px;
     background: url(../img/footer.png) no-repeat center center;
+    opacity: 0.5;
 }
 
 footer small {

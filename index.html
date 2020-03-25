@@ -13,7 +13,6 @@
             margin: auto;
             overflow: auto;
             background: #fff;
-            padding: 15px;
         }
         
         #results {
@@ -22,19 +21,45 @@
         }
         
         #results li {
-            width: 25%;
+            list-style: none;
+            margin: 0 auto;
+        }
+        
+        small {
+            display: inline;
+        }
+        
+        .box {
+            max-width: 300px;
+            max-height: 250px;
+            float: left;
+            position: relative;
+            overflow: hidden;
+            margin-top: 20px;
+        }
+        /*         
+        @media (max-width:768px) {
+            .results {
+                width: 90%;
+                margin: 0 5% 0 5%;
+            }
+        } */
+        
+        .tab-pane {
+            max-width: 100%;
         }
         
         #results iframe {
-            width: 250px;
-            height: 150px;
+            width: 80%;
+            height: 60%;
         }
         
         #results h6 {
             white-space: nowrap;
-            width: 250px;
+            width: 80%;
             overflow: hidden;
             text-overflow: ellipsis;
+            margin: 0 auto;
         }
     </style>
 </head>
@@ -43,7 +68,7 @@
 
     <h1>面試前測驗</h1>
 
-    <!-- 頁籤 -->
+    <!-- 上頁籤 -->
     <ul class="nav nav-tabs">
         <li class="active"><a href="#tab1" data-toggle="tab">首頁</a></li>
         <li><a href="#tab2" data-toggle="tab">收藏頁</a></li>
@@ -59,6 +84,7 @@
                     <!-- <li>
                         <iframe></iframe>
                         <h5>vidTitle</h5>
+                        <small>05:09</small>
                         <h6>vidDescriptionvidDescriptionvidDescriptionvidDescriptionvidDescription</h6>
                     </li> -->
                 </ul>
@@ -74,6 +100,35 @@
         </div>
     </div>
     <!-- /.tab-content -->
+
+    <!-- 底部頁籤 -->
+    <div ng-app="app">
+        <div ng-controller="ExampleController as vm" class="container">
+            <div class="text-center">
+                <!-- items being paged -->
+                <!-- <div ng-repeat="item in vm.items">Item {{item}}</div> -->
+                <!-- pager -->
+                <ul ng-if="vm.pager.pages.length" class="pagination">
+                    <li ng-class="{disabled:vm.pager.currentPage === 1}">
+                        <a ng-click="vm.setPage(1)">First</a>
+                    </li>
+                    <li ng-class="{disabled:vm.pager.currentPage === 1}">
+                        <a ng-click="vm.setPage(vm.pager.currentPage - 1)">Previous</a>
+                    </li>
+                    <li ng-repeat="page in vm.pager.pages" ng-class="{active:vm.pager.currentPage === page}">
+                        <a ng-click="vm.setPage(page)">{{page}}</a>
+                    </li>
+                    <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+                        <a ng-click="vm.setPage(vm.pager.currentPage + 1)">Next</a>
+                    </li>
+                    <li ng-class="{disabled:vm.pager.currentPage === vm.pager.totalPages}">
+                        <a ng-click="vm.setPage(vm.pager.totalPages)">Last</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!-- 底部頁籤end -->
 
     <footer>
         <small>Copyright © Yue All rights reserved</small>

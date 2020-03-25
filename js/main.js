@@ -3,7 +3,7 @@ var vidHeight = 150;
 
 $(document).ready(function() {
     $.get(
-        "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=10&key=AIzaSyAq3uHFSrfgmmfv8-GtOPF5ICpzpeQFz-k",
+        "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails&chart=mostPopular&maxResults=8&key=AIzaSyAq3uHFSrfgmmfv8-GtOPF5ICpzpeQFz-k",
         function(data) {
             $.each(data.items, function(i, item) {
                 console.log(item);
@@ -11,19 +11,32 @@ $(document).ready(function() {
                 vidId = item.id;
                 vidDescription = item.snippet.description;
                 vidDuration = item.contentDetails.duration;
-                vidDuration1 = vidDuration.substring(2, 4);
-                vidDuration2 = vidDuration.substring(5, 7);
-                vidDuration3 = vidDuration.substring(8, 10);
-                if (vidDuration3.length == 0) {
-                    // document.write("影片標題：" + videoTitle + "<br>影片描述：" + vidDescription + "<br>影片長度：" + vidDuration1 + ":" + vidDuration2);
-                } else {
-                    // document.write("影片標題：" + videoTitle + "<br>影片描述：" + vidDescription + "<br>影片長度：" + vidDuration1 + ":" + vidDuration2 + ":" + vidDuration3);
-                }
-                var output;
-                output = '<li><iframe src=\"//www.youtube.com/embed/' + vidId + '\"></iframe><h5>' + vidTitle + '</h5><h6>' + vidDescription + '</h6></li>'
 
+                join = vidDuration.match(/\d/g).join("");
+                // alert(join.length);
+
+                join1 = join.substring(0, 1);
+                join2 = join.substring(1, 2);
+                join3 = join.substring(2, 3);
+                join4 = join.substring(3, 4);
+                join5 = join.substring(4, 5);
+
+                var output;
+                if (join.length == 3) {
+                    vidDuration = join1 + ':' + join2 + join3;
+                    // alert(vidDuration);
+                } else if (join.length == 4) {
+                    vidDuration = join1 + join2 + ':' + join3 + join4;
+                    // alert(vidDuration);
+                } else if (join.length == 5) {
+                    vidDuration = join1 + ':' + join2 + join3 + ':' + join4 + join5;
+                    // alert(vidDuration);
+                }
+
+
+                output = '<li><div class="box"><iframe src=\"//www.youtube.com/embed/' + vidId + '\"></iframe><h5>' + vidTitle + '</h5><small>' + vidDuration + '</small><h6>' + vidDescription + '</h6></div></li>'
                 $('#results').append(output);
             })
-        }
+        },
     );
 });
