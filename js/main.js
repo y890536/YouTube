@@ -34,7 +34,7 @@ $(document).ready(function() {
                 }
 
 
-                output = '<li><div class="box"><iframe src=\"//www.youtube.com/embed/' + vidId + '\"></iframe><h5>' + vidTitle + '</h5><small>' + vidDuration + '</small><h6>' + vidDescription + '</h6></div></li>'
+                output = '<li><div class="box"><iframe src=\"//www.youtube.com/embed/' + vidId + '\"></iframe><h5>影片標題：' + vidTitle + '</h5><small>影片長度：' + vidDuration + '</small><h6>影片描述：' + vidDescription + '</h6></div></li>'
                 $('#results').append(output);
             })
         },
