@@ -1,0 +1,109 @@
+@charset "utf-8";
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    min-height: 900px;
+    width: 100%px;
+    margin: 0 auto;
+    background: #FFF;
+    position: relative;
+}
+
+footer {
+    width: 1198px;
+    height: 404px;
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    margin-left: -600px;
+    background: url(../img/footer.png) no-repeat center center;
+}
+
+footer small {
+    display: block;
+    text-align: center;
+    margin-top: 270px;
+    color: #FFF;
+}
+
+body>h1 {
+    margin: 10px 0 0 0;
+    text-align: right;
+}
+
+p {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    overflow: auto;
+}
+
+
+/* 頁籤面板共通 */
+
+div.tab-pane {
+    border-top: none;
+    height: 550px;
+    position: relative;
+}
+
+
+/* 各頁籤內容的設定 */
+
+
+/* 頁籤1 */
+
+div#tab1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+
+/* 頁籤2 */
+
+div#tab2 h2 {
+    position: absolute;
+    top: 40px;
+    left: 105px;
+}
+
+div#tab2 img[alt="イラスト：チンチラ"] {
+    position: absolute;
+    top: 100px;
+    left: 105px;
+}
+
+div#tab2 dl {
+    position: absolute;
+    top: 45px;
+    left: 330px;
+    width: 250px;
+    font-size: 14px;
+}
+
+div#tab2 dt {
+    color: #00A9BF;
+    margin: 5px 0 0 0;
+}
+
+div#tab2 dd {
+    border-bottom: 1px dashed #B6C0C5;
+    margin: 0;
+    padding-bottom: 5px;
+}
+
+.nav-tabs>li.active>a,
+.nav-tabs>li.active>a:hover,
+.nav-tabs>li.active>a:focus {
+    border-color: #AAA #AAA rgba(0, 0, 0, 0);
+}
+
+.nav-tabs {
+    border-bottom: 1px solid #AAA;
+}
+
+.nav-tabs>li>a:hover {
+    border-color: #eee #eee #AAA;
+}
