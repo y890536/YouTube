@@ -20,7 +20,7 @@ $(document).ready(function() {
                     // document.write("影片標題：" + videoTitle + "<br>影片描述：" + vidDescription + "<br>影片長度：" + vidDuration1 + ":" + vidDuration2 + ":" + vidDuration3);
                 }
                 var output;
-                output = '<li><iframe></iframe src=\"//www.youtube.com/embed/' + vidId + '\"><h5>' + vidTitle + '</h5><h6>' + vidDescription + '</h6></li>'
+                output = '<li><iframe src=\"//www.youtube.com/embed/' + vidId + '\"></iframe><h5>' + vidTitle + '</h5><h6>' + vidDescription + '</h6></li>'
 
                 $('#results').append(output);
             })
